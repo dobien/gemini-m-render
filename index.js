@@ -25,7 +25,7 @@ app.use(cors({
 // Обработка запросов
 app.all('*', async (req, res) => {
   try {
-    const targetUrl = `https://api.mistral.ai/v1${req.originalUrl}`;
+    const targetUrl = `https://api.mistral.ai${req.originalUrl}`;
     console.log(`Proxying to: ${targetUrl}`);
 
     const options = {
