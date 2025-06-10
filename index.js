@@ -19,16 +19,19 @@ app.use(cors({
 app.all('*', async (req, res) => {
   try {
     const targetPath = req.originalUrl;
-    const targetUrl = `https://generativelanguage.googleapis.com${targetPath}`;
+    // Целевой URL для Mistral API.
+    const targetUrl = `https://api.mistral.ai/v1${targetPath}`; 
     
     console.log(`Proxying to: ${targetUrl}`);
 
     const options = {
       method: req.method,
       headers: {
-        ...req.headers,
-        host: 'generativelanguage.googleapis.com',
-        'x-proxy-request': 'true' // Удаляем в конечном запросе
+        ...req.headers, // Копируем ВСЕ заголовки из входящего запроса
+        host: 'api.mistral.ai', // Но ОБЯЗАТЕЛЬНО переопределяем заголовок Host для Mistral API
+        // Заголовок 'Authorization' будет автоматически передан из req.headers
+        // Нам не нужно его добавлять или изменять здесь, если клиент его предоставил.
+        'x-proxy-request': 'true' // Это наш внутренний заголовок, который потом удалим
       }
     };
 
