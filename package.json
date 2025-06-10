@@ -1,0 +1,29 @@
+{
+    "name": "gemini-proxy",
+    "version": "1.0.0",
+    "description": "Proxy server for Gemini API",
+    "main": "index.js",
+    "scripts": {
+      "start": "node index.js",
+      "dev": "nodemon index.js"
+    },
+    "keywords": [
+      "gemini",
+      "proxy",
+      "api",
+      "render"
+    ],
+    "author": "Your Name",
+    "license": "MIT",
+    "dependencies": {
+      "express": "^4.18.2",
+      "cors": "^2.8.5",
+      "body-parser": "^1.20.2"
+    },
+    "devDependencies": {
+      "nodemon": "^3.0.1"
+    },
+    "engines": {
+      "node": ">=18.0.0"
+    }
+  }
