@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: gemini-proxy
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /  # Проверка работоспособности (можно изменить)
+    envVars:
+      - key: PORT
+        value: "3000" # Или любой другой порт, который вы хотите использовать
